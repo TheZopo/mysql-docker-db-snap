@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+# Usage :
+#       ./mysql-db-snap.sh --dump-host=127.0.0.1 --dump-port=3308 --dump-user=bingo-ifa --dump-password=bingo-ifa --databases=bingo-ifa --image=bm/bingo-ifa/test-data
+
 # ========================
 #        PARAMETERS
 # ========================
