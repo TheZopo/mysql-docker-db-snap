@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # Usage :
-#       ./mysql-db-snap.sh --dump-host=127.0.0.1 --dump-port=3308 --dump-user=bingo-ifa --dump-password=bingo-ifa --databases=bingo-ifa --image=bm/bingo-ifa/test-data
+#       ./mysql-db-snap.sh --host=127.0.0.1 --port=3308 --user=bingo-ifa --password=bingo-ifa --databases=bingo-ifa --image=bm/bingo-ifa/test-data
 
 # ========================
 #        PARAMETERS
@@ -9,24 +9,24 @@
 for i in "$@"
 do
 case $i in
-    -dh=*|--dump-host=*)
+    -h=*|--host=*)
     DUMP_HOST="${i#*=}"
     shift
     ;;
-    -dp=*|--dump-port=*)
+    -p=*|--port=*)
     DUMP_PORT="${i#*=}"
     shift
     ;;
-    -du=*|--dump-user=*)
+    -u=*|--user=*)
     DUMP_USERNAME="${i#*=}"
     shift
     ;;
     -d=*|--databases=*)
     DB_DUMP_NAMES="${i#*=}"
-    IFS=':' read -r -a DB_DUMP_NAMES_ARRAY <<< "$DB_DUMP_NAMES"
+    IFS=',' read -r -a DB_DUMP_NAMES_ARRAY <<< "$DB_DUMP_NAMES"
     shift
     ;;
-    -dP=*|--dump-password=*)
+    -P=*|--password=*)
     DUMP_PASSWORD="${i#*=}"
     shift
     ;;
