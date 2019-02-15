@@ -10,11 +10,11 @@ Shell script creating a snapshot of mysql databases and pushing it to a docker i
 |`--dump-password`, `-dP`|MySQL password|
 |`--databases`, `-d`|Database names separated by `:`|
 |`--image`, `-i`|Output image name|
-|`--image-versions`, `-iv`|Output image tag|
+|`--image-version`, `-iv`|Output image tag|
 
 Exemple:
 ```shell
-./mysql-db-snap.sh -dh=127.0.0.1 -du=root -dP=password -d=bingo-ifa -i=bm/bingo-ifa/test-data -iv=latest
+./mysql-db-snap.sh --dump-host=127.0.0.1 --dump-port=3308 --dump-user=bingo-ifa --dump-password=bingo-ifa --databases=bingo-ifa --image=bm/bingo-ifa/test-data --image-version=latest
 ```
 
 ## Environment variables
